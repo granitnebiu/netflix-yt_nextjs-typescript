@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Banner from '../components/Banner'
 import requests from '../utlis/requests'
 import { Movie } from '../typing'
+import Row from '../components/Row'
 
 interface Props {
   netflixOriginals: Movie[]
@@ -27,7 +28,7 @@ const Home = ({
 }: Props) => {
   // console.log(netflixOriginals)
   return (
-    <div className="bg-gradient-t-b relative h-screen from-gray-900/10 to-[#010511] lg:h-[140vh]">
+    <div className="relative h-screen bg-gradientCustom-to-b lg:h-[140vh]">
       <Head>
         <title>Home - Netflix</title>
         <link rel="icon" href="/favicon.ico" />
@@ -36,12 +37,16 @@ const Home = ({
       <main className="relative pl-4 pb-24 lg:space-y-24 lg:p-16">
         {/* Banner  */}
         <Banner netflixOriginals={netflixOriginals} />
-        <section>
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
-          {/* Row */}
+        <section className="md:space-y-24">
+          <Row title="Trending Now" movies={trendingNow} />
+          <Row title="Top Rated" movies={topRated} />
+          <Row title="Action Thrillers" movies={actionMovies} />
+          {/* My List Component */}
+
+          <Row title="Comedies" movies={comedyMovies} />
+          <Row title="Scary Movies" movies={horrorMovies} />
+          <Row title="Romance Movies" movies={romanceMovies} />
+          <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
       {/* Modal */}
